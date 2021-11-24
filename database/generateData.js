@@ -21,9 +21,10 @@ module.exports = async () => {
   }
   for (collector of collectorData) {
     let collectorInstance = await Collector.create(collector);
-    let id = Math.round(Math.random() * (cardData.length - 1) + 1);
-    let randomCard = await Card.findByPk(id);
-    await collectorInstance.addCard(randomCard);
+    // I don't think this needs to be added as our first route, generates cards for a specific user, aparently free of charge
+    // let id = Math.round(Math.random() * (cardData.length - 1) + 1);
+    // let randomCard = await Card.findByPk(id);
+    // await collectorInstance.addCard(randomCard);
   }
   console.log('Done generating seed data')
 };
